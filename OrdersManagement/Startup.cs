@@ -1,3 +1,5 @@
+using OrdersManagement.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,9 @@ namespace OrdersManagement
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<OrdersManagementContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("OrdersManagementContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
