@@ -34,7 +34,7 @@ namespace OrdersManagement.Controllers
             }
 
             var customer = await _context.Customer
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.CustomerId == id);
             if (customer == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace OrdersManagement.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Fname,LName,Address,phone")] Customer customer)
+        public async Task<IActionResult> Create([Bind("CustomerId,Fname,LName,Address,phone")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace OrdersManagement.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Fname,LName,Address,phone")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,Fname,LName,Address,phone")] Customer customer)
         {
-            if (id != customer.Id)
+            if (id != customer.CustomerId)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace OrdersManagement.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CustomerExists(customer.Id))
+                    if (!CustomerExists(customer.CustomerId))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace OrdersManagement.Controllers
             }
 
             var customer = await _context.Customer
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.CustomerId == id);
             if (customer == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace OrdersManagement.Controllers
 
         private bool CustomerExists(int id)
         {
-            return _context.Customer.Any(e => e.Id == id);
+            return _context.Customer.Any(e => e.CustomerId == id);
         }
     }
 }
