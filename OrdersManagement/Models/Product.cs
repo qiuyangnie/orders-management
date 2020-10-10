@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace OrdersManagement.Models
@@ -15,5 +16,7 @@ namespace OrdersManagement.Models
 
         [DataType(DataType.Date)]
         public DateTime ExpiredDate { get; set; }
+
+        public IList<OrderDetail> OrderDetail { get; set; }
     }
 }

@@ -61,6 +61,24 @@ namespace OrdersManagement.Migrations
                     b.ToTable("Order");
                 });
 
+            modelBuilder.Entity("OrdersManagement.Models.OrderDetail", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("OrderId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderDetail");
+                });
+
             modelBuilder.Entity("OrdersManagement.Models.Product", b =>
                 {
                     b.Property<int>("ProductId")
@@ -87,11 +105,48 @@ namespace OrdersManagement.Migrations
                     b.ToTable("Product");
                 });
 
+            modelBuilder.Entity("OrdersManagement.Models.Status", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("OrderId");
+
+                    b.ToTable("Status");
+                });
+
             modelBuilder.Entity("OrdersManagement.Models.Order", b =>
                 {
                     b.HasOne("OrdersManagement.Models.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("OrdersManagement.Models.OrderDetail", b =>
+                {
+                    b.HasOne("OrdersManagement.Models.Order", "Order")
+                        .WithMany("OrderDetail")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OrdersManagement.Models.Product", "Product")
+                        .WithMany("OrderDetail")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("OrdersManagement.Models.Status", b =>
+                {
+                    b.HasOne("OrdersManagement.Models.Order", "Order")
+                        .WithOne("Status")
+                        .HasForeignKey("OrdersManagement.Models.Status", "OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

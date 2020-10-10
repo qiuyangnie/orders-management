@@ -13,5 +13,12 @@ namespace OrdersManagement.Data
         public DbSet<Product> Product { get; set; }
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Order> Order { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
+        public DbSet<Status> Status { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<OrderDetail>().HasKey(od => new { od.OrderId, od.ProductId });
+        }
     }
 }
