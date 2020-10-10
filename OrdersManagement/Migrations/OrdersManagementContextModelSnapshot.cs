@@ -16,6 +16,29 @@ namespace OrdersManagement.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.8");
 
+            modelBuilder.Entity("OrdersManagement.Models.Customer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Fname")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("phone")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Customer");
+                });
+
             modelBuilder.Entity("OrdersManagement.Models.Product", b =>
                 {
                     b.Property<int>("Id")

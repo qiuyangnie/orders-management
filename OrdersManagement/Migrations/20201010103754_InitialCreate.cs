@@ -8,6 +8,22 @@ namespace OrdersManagement.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Customer",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Fname = table.Column<string>(nullable: true),
+                    LName = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true),
+                    phone = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Customer", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Product",
                 columns: table => new
                 {
@@ -27,6 +43,9 @@ namespace OrdersManagement.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Customer");
+
             migrationBuilder.DropTable(
                 name: "Product");
         }
