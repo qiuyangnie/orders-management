@@ -11,5 +11,6 @@ namespace OrdersManagement.Data
         }
 
         public DbSet<Product> Product { get; set; }
+        public DbSet<Customer> Customer { get; set; }
     }
 }
