@@ -1,9 +1,5 @@
 # orders-management
 
-
-
-
-
 # Design Process:
 ## Relational Database Design Process
 ### Step 1: Define the Purpose of the Database (Requirement Analysis)
