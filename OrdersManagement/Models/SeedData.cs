@@ -33,28 +33,28 @@ namespace OrdersManagement.Models
                     new Product
                     {
                         Name = "Thomann DP-26",
-                        Price = 399.00M,
+                        Price = 299.00M,
                         Description = "88 Keys",
-                        CreationDate = DateTime.Parse("2020-2-12"),
-                        ExpiredDate = DateTime.Parse("2020-2-12")
+                        CreationDate = DateTime.Parse("2019-5-24"),
+                        ExpiredDate = DateTime.Parse("2019-5-24")
                     },
 
                     new Product
                     {
                         Name = "Casio CDP-S100",
-                        Price = 399.00M,
+                        Price = 329.00M,
                         Description = "88 Keys",
-                        CreationDate = DateTime.Parse("2020-2-12"),
-                        ExpiredDate = DateTime.Parse("2020-2-12")
+                        CreationDate = DateTime.Parse("2020-7-15"),
+                        ExpiredDate = DateTime.Parse("2020-7-15")
                     },
 
                     new Product
                     {
                         Name = "Hemingway DP-501 MKII RW",
-                        Price = 399.00M,
+                        Price = 599.00M,
                         Description = "88 Keys",
-                        CreationDate = DateTime.Parse("2020-2-12"),
-                        ExpiredDate = DateTime.Parse("2020-2-12")
+                        CreationDate = DateTime.Parse("2020-9-12"),
+                        ExpiredDate = DateTime.Parse("2020-9-12")
                     },
 
                     new Product
@@ -62,9 +62,10 @@ namespace OrdersManagement.Models
                         Name = "Roland GO:PIANO",
                         Price = 399.00M,
                         Description = "61 Keys",
-                        CreationDate = DateTime.Parse("2020-2-12"),
-                        ExpiredDate = DateTime.Parse("2020-2-12")
+                        CreationDate = DateTime.Parse("2020-8-13"),
+                        ExpiredDate = DateTime.Parse("2020-8-13")
                     });
+                    context.SaveChanges();
                 }
 
                 if (context.Customer.Any())
@@ -90,6 +91,7 @@ namespace OrdersManagement.Models
                             phone = "123"
                         }
                     );
+                    context.SaveChanges();
                 }
 
                 if (context.Order.Any())
@@ -113,6 +115,7 @@ namespace OrdersManagement.Models
                             CustomerId = 2,
                         }
                     );
+                    context.SaveChanges();
                 }
 
                 if (context.OrderDetail.Any())
@@ -136,6 +139,7 @@ namespace OrdersManagement.Models
                             quantity = 10
                         }
                     );
+                    context.SaveChanges();
                 }
 
                 if (context.Status.Any())
@@ -157,6 +161,7 @@ namespace OrdersManagement.Models
                             Name = "Delivering"
                         }
                     );
+                    context.SaveChanges();
                 }
             }
         }
