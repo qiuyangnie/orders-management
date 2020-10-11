@@ -20,8 +20,12 @@ namespace OrdersManagement.Controllers
         }
 
         // GET: Product
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string productDescription, string searchString)
         {
+            IQueryable<string> descriptionQuery = from d in _context.Product
+                                                  orderby d.Description
+                                                  select d.Description;
+
             var products = from p in _context.Product
                            select p;
 
@@ -29,7 +33,19 @@ namespace OrdersManagement.Controllers
             {
                 products = products.Where(p => p.Name.Contains(searchString));
             }
-            return View(await products.ToListAsync());
+
+            if (!string.IsNullOrEmpty(productDescription))
+            {
+                products = products.Where(x => x.Description == productDescription);
+            }
+
+            var productViewModel = new ProductViewModel
+            {
+                Descriptions = new SelectList(await descriptionQuery.Distinct().ToListAsync()),
+                Products = await products.ToListAsync()
+            };
+
+            return View(productViewModel);
         }
 
         // GET: Product/Details/5
