@@ -20,9 +20,17 @@ namespace OrdersManagement.Controllers
         }
 
         // GET: Customer
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string firstName)
         {
-            return View(await _context.Customer.ToListAsync());
+            var customers = from c in _context.Customer
+                            select c;
+
+            if (!String.IsNullOrEmpty(firstName))
+            {
+                customers = customers.Where(f => f.Fname.Contains(firstName));
+            }
+
+            return View(await customers.ToListAsync());
         }
 
         // GET: Customer/Details/5
