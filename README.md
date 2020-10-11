@@ -1,5 +1,12 @@
 # orders-management
 
+# Introduction:
+* This document includes basic but instrumental design process for approaching the assessment, instructions to use the application, and project critical evaluation.
+
+# Instructions:
+
+# Critical Evaluation:
+
 # Design Process:
 ## Relational Database Design Process
 ### Step 1: Define the Purpose of the Database (Requirement Analysis)
@@ -28,3 +35,13 @@
   * ***Customer***: `CustomerId`(PK), `Fname`, `Lname`, `Address`, `Phone` 
   * ***Status***: `OrderId`(PK), `Name`
   
+### Step 4: Refine & Normalize the Designs (Author's belief but it is optional for assessment)
+* **Normalization**
+  * All tables can comply 3NF:
+    * Every cell contains a single value, not a list of values.
+    * Every non-key column is fully dependent on the primary key, only on the primary key and nothing else.
+* **Integrity Rules**
+  * **Entity Integrity Rule**: The primary key cannot contain `NULL`. Otherwise, it cannot uniquely identify the row. For composite key made up of several columns(***OrderDetail*** table), none of the column can contain NULL. However, most of the RDBMS check and enforce this rule.
+  * **Referential Integrity Rule**: Each foreign key value must be matched to a primary key value in the table referenced (or parent table).
+    * If the value of the key changes in the parent table (e.g., the row updated or deleted), all rows with this foreign key in the child table(s) must be handled accordingly. There are many options to comply with the rule: (a) disallow the changes; (b) cascade the change (or delete the records) in the child tables accordingly; (c) set the key value in the child tables to `NULL`. The option (b) is chosen because frequent transaction is expected in Orders Management system.
+  * **Business logic Integrity**: TODO
