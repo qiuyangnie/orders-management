@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdersManagement", "OrdersManagement\OrdersManagement.csproj", "{C1DA073E-E31D-4C7B-BC3E-874D5E550D67}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{919328FE-4D53-4F81-9AD9-524306D88BF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{C1DA073E-E31D-4C7B-BC3E-874D5E550D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1DA073E-E31D-4C7B-BC3E-874D5E550D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1DA073E-E31D-4C7B-BC3E-874D5E550D67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{919328FE-4D53-4F81-9AD9-524306D88BF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{919328FE-4D53-4F81-9AD9-524306D88BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{919328FE-4D53-4F81-9AD9-524306D88BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{919328FE-4D53-4F81-9AD9-524306D88BF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
