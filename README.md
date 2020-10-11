@@ -1,9 +1,9 @@
 # orders-management
 
-# Introduction:
+# Introduction:
 * This document includes basic but instrumental design process for approaching the assessment, instructions to use the application, and project critical evaluation.
 
-# Instructions:
+# Instructions:
 
 # Critical Evaluation:
 
