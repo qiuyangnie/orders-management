@@ -20,10 +20,26 @@ namespace OrdersManagement.Controllers
         }
 
         // GET: Order
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int customerId)
         {
-            var ordersManagementContext = _context.Order.Include(o => o.Customer);
-            return View(await ordersManagementContext.ToListAsync());
+            IQueryable<int> customerIdQuery = from c in _context.Order
+                                                 select c.CustomerId;
+
+            var orders = from o in _context.Order
+                         select o;
+
+            if (customerId >= 1)
+            {
+                orders = orders.Where(x => x.CustomerId == customerId);
+            }
+            
+            var orderViewModel = new OrderViewModel
+            {
+                CustomerIds = new SelectList(await customerIdQuery.Distinct().ToListAsync()),
+                Orders = await orders.ToListAsync()
+            };
+
+            return View(orderViewModel);
         }
 
         // GET: Order/Details/5

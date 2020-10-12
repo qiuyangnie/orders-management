@@ -9,7 +9,7 @@ using OrdersManagement.Data;
 namespace OrdersManagement.Migrations
 {
     [DbContext(typeof(OrdersManagementContext))]
-    [Migration("20201010201048_InitialCreate")]
+    [Migration("20201012134018_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

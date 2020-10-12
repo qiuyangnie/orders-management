@@ -20,7 +20,7 @@ namespace OrdersManagement.Controllers
         }
 
         // GET: Product
-        public async Task<IActionResult> Index(string productDescription, string searchString)
+        public async Task<IActionResult> Index(string productDescription, string productName)
         {
             IQueryable<string> descriptionQuery = from d in _context.Product
                                                   orderby d.Description
@@ -29,9 +29,9 @@ namespace OrdersManagement.Controllers
             var products = from p in _context.Product
                            select p;
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrEmpty(productName))
             {
-                products = products.Where(p => p.Name.Contains(searchString));
+                products = products.Where(p => p.Name.Contains(productName));
             }
 
             if (!string.IsNullOrEmpty(productDescription))

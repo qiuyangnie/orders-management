@@ -64,6 +64,24 @@ namespace OrdersManagement.Models
                         Description = "61 Keys",
                         CreationDate = DateTime.Parse("2020-8-13"),
                         ExpiredDate = DateTime.Parse("2020-8-13")
+                    },
+
+                    new Product
+                    {
+                        Name = "DP-10X",
+                        Price = 499.00M,
+                        Description = "88 Keys",
+                        CreationDate = DateTime.Parse("2020-10-11"),
+                        ExpiredDate = DateTime.Parse("2020-10-11")
+                    },
+
+                    new Product
+                    {
+                        Name = "ES110",
+                        Price = 611.00M,
+                        Description = "88 Keys",
+                        CreationDate = DateTime.Parse("2020-8-13"),
+                        ExpiredDate = DateTime.Parse("2020-8-13")
                     });
                     context.SaveChanges();
                 }
@@ -89,6 +107,30 @@ namespace OrdersManagement.Models
                             LName = "Murphy",
                             Address = "Cork",
                             phone = "123"
+                        },
+
+                        new Customer
+                        {
+                            Fname = "James",
+                            LName = "Murphy",
+                            Address = "Cork",
+                            phone = "123"
+                        },
+
+                        new Customer
+                        {
+                            Fname = "David",
+                            LName = "Murphy",
+                            Address = "Dublin",
+                            phone = "123"
+                        },
+
+                        new Customer
+                        {
+                            Fname = "Ian",
+                            LName = "Murphy",
+                            Address = "Dublin",
+                            phone = "123"
                         }
                     );
                     context.SaveChanges();
@@ -104,15 +146,57 @@ namespace OrdersManagement.Models
                         new Order
                         {
                             CreationDate = DateTime.Parse("2020-10-12"),
-                            EstimateDate = DateTime.Parse("2020-10-12"),
+                            EstimateDate = DateTime.Parse("2020-10-15"),
                             CustomerId = 1,
                         },
 
                         new Order
                         {
-                            CreationDate = DateTime.Parse("2020-10-12"),
+                            CreationDate = DateTime.Parse("2020-10-10"),
+                            EstimateDate = DateTime.Parse("2020-10-16"),
+                            CustomerId = 1,
+                        },
+
+                        new Order
+                        {
+                            CreationDate = DateTime.Parse("2020-10-9"),
                             EstimateDate = DateTime.Parse("2020-10-12"),
                             CustomerId = 2,
+                        },
+
+                        new Order
+                        {
+                            CreationDate = DateTime.Parse("2020-10-7"),
+                            EstimateDate = DateTime.Parse("2020-10-10"),
+                            CustomerId = 2,
+                        },
+
+                        new Order
+                        {
+                            CreationDate = DateTime.Parse("2020-10-2"),
+                            EstimateDate = DateTime.Parse("2020-10-8"),
+                            CustomerId = 3,
+                        },
+
+                        new Order
+                        {
+                            CreationDate = DateTime.Parse("2020-10-1"),
+                            EstimateDate = DateTime.Parse("2020-10-7"),
+                            CustomerId = 3,
+                        },
+
+                        new Order
+                        {
+                            CreationDate = DateTime.Parse("2020-10-10"),
+                            EstimateDate = DateTime.Parse("2020-10-12"),
+                            CustomerId = 3,
+                        },
+
+                        new Order
+                        {
+                            CreationDate = DateTime.Parse("2020-10-9"),
+                            EstimateDate = DateTime.Parse("2020-10-12"),
+                            CustomerId = 4,
                         }
                     );
                     context.SaveChanges();
@@ -137,6 +221,48 @@ namespace OrdersManagement.Models
                             OrderId = 2,
                             ProductId = 4,
                             quantity = 10
+                        },
+
+                        new OrderDetail
+                        {
+                            OrderId = 3,
+                            ProductId = 2,
+                            quantity = 5
+                        },
+
+                        new OrderDetail
+                        {
+                            OrderId = 4,
+                            ProductId = 4,
+                            quantity = 10
+                        },
+
+                        new OrderDetail
+                        {
+                            OrderId = 5,
+                            ProductId = 3,
+                            quantity = 5
+                        },
+
+                        new OrderDetail
+                        {
+                            OrderId = 6,
+                            ProductId = 4,
+                            quantity = 10
+                        },
+
+                        new OrderDetail
+                        {
+                            OrderId = 7,
+                            ProductId = 5,
+                            quantity = 1
+                        },
+
+                        new OrderDetail
+                        {
+                            OrderId = 8,
+                            ProductId = 4,
+                            quantity = 10
                         }
                     );
                     context.SaveChanges();
@@ -158,6 +284,42 @@ namespace OrdersManagement.Models
                         new Status
                         {
                             OrderId = 2,
+                            Name = "Delivering"
+                        },
+
+                        new Status
+                        {
+                            OrderId = 3,
+                            Name = "Processing"
+                        },
+
+                        new Status
+                        {
+                            OrderId = 4,
+                            Name = "Delivering"
+                        },
+
+                        new Status
+                        {
+                            OrderId = 5,
+                            Name = "Processing"
+                        },
+
+                        new Status
+                        {
+                            OrderId = 6,
+                            Name = "Delivering"
+                        },
+
+                        new Status
+                        {
+                            OrderId = 7,
+                            Name = "Processing"
+                        },
+
+                        new Status
+                        {
+                            OrderId = 8,
                             Name = "Delivering"
                         }
                     );

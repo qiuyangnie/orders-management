@@ -8,6 +8,5 @@ namespace OrdersManagement.Models
         public List<Product> Products { get; set; }
         public SelectList Descriptions { get; set; }
         public string ProductDescription { get; set; }
-        public string SearchString { get; set; }
     }
 }
