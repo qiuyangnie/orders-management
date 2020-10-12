@@ -1,17 +1,17 @@
 # orders-management
 
 ## Introduction:
-* This document includes basic but instrumental design process for approaching the assessment especially the relational database design, instructions to use the application, and project critical evaluation and good practices.
+* This document includes basic but instrumental relational database design process for approaching the assessment, instructions of web window, and other practices.
 
 ## Design Process (Relational Database Design):
-##### **Step 1**: Define the Purpose of the Database (Requirement Analysis)
+#### **Step 1**: Define the Purpose of the Database (Requirement Analysis)
 * Assessment.
 
-##### **Step 2**: Gather Data, Organize in tables and Specify the Primary Keys
+#### **Step 2**: Gather Data, Organize in tables and Specify the Primary Keys
 * Subject-based tables: ***Product***, ***Order***, ***Customer***, ***Status***.
 * The `Id` field of each table is set to the *primary key* because it is *fact-less*, as it contains no factual information. Unlike factual information such as phone number, fact-less number is ideal for primary key, as it does not change.
 
-##### **Step 3**: Create Relationships among Tables
+#### **Step 3**: Create Relationships among Tables
 * One-to-Many: ***Customer***-***Order*** 
   * A customer may place many orders; while an order is placed by one particular customer.
     * The column `CustomerId` in the child table ***Order*** is the *foreign key*.
@@ -27,7 +27,7 @@
   * ***Customer***: `CustomerId`(PK), `Fname`, `Lname`, `Address`, `Phone` 
   * ***Status***: `OrderId`(PK), `Name`
   
-##### **Step 4**: Refine & Normalize the Designs (Author's belief but it is optional for assessment)
+#### **Step 4**: Refine & Normalize the Designs (Author's belief but it is optional for assessment)
 * Normalization: All tables can comply *3NF*:
     * Every cell contains a single value, not a list of values.
     * Every non-key column is fully dependent on the primary key, only on the primary key and nothing else.
@@ -37,7 +37,7 @@
     * If the value of the key changes in the parent table (e.g., the row updated or deleted), all rows with this foreign key in the child table(s) must be handled accordingly. There are many options to comply with the rule: (a) disallow the changes; (b) cascade the change (or delete the records) in the child tables accordingly; (c) set the key value in the child tables to `NULL`. The option (b) is chosen because frequent transaction is expected in Orders Management system.
   * *Business logic Integrity* (TODO): Add validation pertaining to the business logic, e.g., Creation date shall prior to Expired date; quantity ordered shall not be equal or less than `0`, etc. These could be carried out in validation rule (for the specific column) or programming logic. 
 
-## Instructions:
+## Web Windows:
 ```
 https://localhost:5001/customer
 https://localhost:5001/product
@@ -49,5 +49,3 @@ https://localhost:5001/order
   * The VC tool used is Git. The project setup is inspired by conventions of open-sourced project setting:
     * The `main` branch is the deployed version, which is set to be protected. Anyone (including administrator) cannot push the commit directly into master branch.
     * TODO: The CI tool ensures the every commit pushed is tested automatically. And only all checks have passed can be ready to merge into `main` branch.
-* Object-Oriented Paradigm (OOP) and Design Pattern:
-  * The structure of this project is based on strict MVC architecture.
