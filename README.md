@@ -1,18 +1,10 @@
 # orders-management
 
 ## Introduction:
-* This document includes basic but instrumental design process for approaching the assessment, instructions to use the application, and project critical evaluation.
-
-## Instructions:
-```
-https://localhost:5001/customer
-https://localhost:5001/product
-https://localhost:5001/order
-```
+* This document includes basic but instrumental design process for approaching the assessment especially the relational database design, instructions to use the application, and project critical evaluation and good practices.
 
 ## Design Process:
 ##### Relational Database Design Process
-
 ###### **Step 1**: Define the Purpose of the Database (Requirement Analysis)
 * Assessment.
 
@@ -44,6 +36,19 @@ https://localhost:5001/order
   * *Entity Integrity Rule*: The primary key cannot contain `NULL`. Otherwise, it cannot uniquely identify the row. For composite key made up of several columns(***OrderDetail*** table), none of the column can contain NULL. However, most of the RDBMS check and enforce this rule.
   * *Referential Integrity Rule*: Each foreign key value must be matched to a primary key value in the table referenced (or parent table).
     * If the value of the key changes in the parent table (e.g., the row updated or deleted), all rows with this foreign key in the child table(s) must be handled accordingly. There are many options to comply with the rule: (a) disallow the changes; (b) cascade the change (or delete the records) in the child tables accordingly; (c) set the key value in the child tables to `NULL`. The option (b) is chosen because frequent transaction is expected in Orders Management system.
-  * *Business logic Integrity*: TODO
+  * *Business logic Integrity* (TODO): Add validation pertaining to the business logic, e.g., Creation date shall prior to Expired date; quantity ordered shall not be equal or less than `0`, etc. These could be carried out in validation rule (for the specific column) or programming logic. 
 
-## Critical Evaluation:
+## Instructions:
+```
+https://localhost:5001/customer
+https://localhost:5001/product
+https://localhost:5001/order
+```
+
+## Good Practice:
+* Version Control (VC):
+  * The VC tool used is Git. The project setup is inspired by conventions of open-sourced project setting:
+    * The `main` branch is the deployed version, which is set to be protected. Anyone (including administrator) cannot push the commit directly into master branch.
+    * TODO: The CI tool ensures the every commit pushed is tested automatically. And only all checks have passed can be ready to merge into `main` branch.
+* Object-Oriented Paradigm (OOP) and Design Pattern:
+  * The structure of this project is based on strict MVC architecture.
