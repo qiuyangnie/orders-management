@@ -47,5 +47,5 @@ https://localhost:5001/order
 ## Good Practice:
 * Version Control (VC):
   * The VC tool used is Git. The project setup is inspired by conventions of open-sourced project setting:
-    * The `main` branch is the deployed version, which is set to be protected. Anyone (including administrator) cannot push the commit directly into master branch.
+    * The `main` branch is the deployed version, which is set to be protected. Anyone (including administrator) cannot push the commit directly into `main` branch.
     * TODO: The CI tool ensures the every commit pushed is tested automatically. And only all checks have passed can be ready to merge into `main` branch.
