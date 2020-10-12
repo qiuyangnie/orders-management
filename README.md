@@ -12,14 +12,15 @@ https://localhost:5001/order
 
 ## Design Process:
 * **Relational Database Design Process**
-1. **Step 1**: Define the Purpose of the Database (Requirement Analysis)
+
+###### **Step 1**: Define the Purpose of the Database (Requirement Analysis)
 * Assessment.
 
-2. **Step 2**: Gather Data, Organize in tables and Specify the Primary Keys
+###### **Step 2**: Gather Data, Organize in tables and Specify the Primary Keys
 * Subject-based tables: ***Product***, ***Order***, ***Customer***, ***Status***.
 * The `Id` field of each table is set to the *primary key* because it is *fact-less*, as it contains no factual information. Unlike factual information such as phone number, fact-less number is ideal for primary key, as it does not change.
 
-3. **Step 3**: Create Relationships among Tables
+###### **Step 3**: Create Relationships among Tables
 * One-to-Many: ***Customer***-***Order*** 
   * A customer may place many orders; while an order is placed by one particular customer.
     * The column `CustomerId` in the child table ***Order*** is the *foreign key*.
@@ -35,7 +36,7 @@ https://localhost:5001/order
   * ***Customer***: `CustomerId`(PK), `Fname`, `Lname`, `Address`, `Phone` 
   * ***Status***: `OrderId`(PK), `Name`
   
-4. **Step 4**: Refine & Normalize the Designs (Author's belief but it is optional for assessment)
+###### **Step 4**: Refine & Normalize the Designs (Author's belief but it is optional for assessment)
 * Normalization: All tables can comply *3NF*:
     * Every cell contains a single value, not a list of values.
     * Every non-key column is fully dependent on the primary key, only on the primary key and nothing else.
